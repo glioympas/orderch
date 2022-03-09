@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function home()
     {
         return view('home', [
-            'products' => $this->productRepo->all()
+            'products' => $this->productRepo->all(),
         ]);
     }
 }

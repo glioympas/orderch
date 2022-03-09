@@ -41,22 +41,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     // Relations
 
-    public function orders() {
+    public function orders()
+    {
         return $this->hasMany(Order::class);
     }
 
-    public function lastAddress() {
+    public function lastAddress()
+    {
         return $this->hasOne(UserAddress::class)->latestOfMany();
     }
 
-    public function addresses() {
+    public function addresses()
+    {
         return $this->hasMany(UserAddress::class);
     }
 
-    public function coupons() {
+    public function coupons()
+    {
         return $this->hasMany(Coupon::class);
     }
 }

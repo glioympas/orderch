@@ -2,8 +2,7 @@
 
 namespace App\Interfaces;
 
-interface ProductRepositoryInterface 
+interface ProductRepositoryInterface
 {
     public function all();
-    
 }

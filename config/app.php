@@ -1,7 +1,5 @@
 <?php
 
-use App\Providers\RepositoryServiceProvider;
-
 return [
     /*
     |--------------------------------------------------------------------------
@@ -166,7 +164,6 @@ return [
          * Package Service Providers...
          */
 
-
         /*
          * Application Service Providers...
          */
@@ -176,7 +173,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        App\Providers\RepositoryServiceProvider::class
+        App\Providers\RepositoryServiceProvider::class,
     ],
 
     /*

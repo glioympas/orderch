@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateUserAddressesTable extends Migration
 {
@@ -17,8 +17,8 @@ class CreateUserAddressesTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('street_address');
-            $table->string('country'); //this could be a foreign id to countries table actually
-            $table->string('city'); //this could be a foreign id to cties table actually
+            $table->string('country'); // this could be a foreign id to countries table actually
+            $table->string('city'); // this could be a foreign id to cties table actually
             $table->string('contact_phone');
             $table->string('contact_email');
             $table->timestamps();

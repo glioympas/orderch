@@ -25,17 +25,17 @@ class CheckoutRequest extends FormRequest
     {
         $rules = [];
 
-        if(!auth()->check()) {
+        if (! auth()->check()) {
             $rules['account_email'] = 'required|string|email|unique:users,email';
             $rules['account_password'] = 'required|string|min:6|max:16';
         }
 
         return array_merge($rules, [
             'street_address' => 'required|string',
-            'country'  => 'required|string',
-            'city'  => 'required|string',
+            'country'        => 'required|string',
+            'city'           => 'required|string',
             'contact_phone'  => 'required|string',
-            'contact_email'  => 'required|string|email'
+            'contact_email'  => 'required|string|email',
         ]);
     }
 }

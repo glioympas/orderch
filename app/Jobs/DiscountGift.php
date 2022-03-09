@@ -2,18 +2,20 @@
 
 namespace App\Jobs;
 
+use Str;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
-use Str;
 
 class DiscountGift implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     private $userId;
     private $percentage;
@@ -23,7 +25,7 @@ class DiscountGift implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($userId , $percentage)
+    public function __construct($userId, $percentage)
     {
         $this->userId = $userId;
         $this->percentage = $percentage;
@@ -38,12 +40,12 @@ class DiscountGift implements ShouldQueue
     {
         $user = User::find($this->userId);
 
-        if(!$user) {
+        if (! $user) {
             return;
         }
 
         $user->coupons()->create([
-            'code' => Str::random(5), //for sure something more unique here,
+            'code'    => Str::random(5), // for sure something more unique here,
             'percent' => $this->percentage,
         ]);
     }

@@ -25,7 +25,7 @@ class AddToCart extends FormRequest
     public function rules()
     {
         return [
-            'product_id' => [ 'required', 'integer', 'exists:products,id', new InStock() ]
+            'product_id' => ['required', 'integer', 'exists:products,id', new InStock()],
         ];
     }
 }
